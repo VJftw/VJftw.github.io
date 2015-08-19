@@ -7,10 +7,10 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://vjpatel.me" # the base hostname & protocol for your site
 twitter_username: VJftw
 github_username:  VJftw
-linkedin_name: Vijendra Patel
-linkedin_url: 
+linkedin_name: VJ Patel
+linkedin_url: https://uk.linkedin.com/pub/vj-patel/6b/648/109
 google_plus_name: VJ Patel
-google_plus_url:
+google_plus_url: https://google.com/+VJPatel1994
 timezone: Europe/London
 
 # Build settings
