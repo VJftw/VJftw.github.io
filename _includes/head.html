@@ -8,7 +8,8 @@
   <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
 
   <script>
-    if (window.location.protocol != "https:") {
+    var host = "vjpatel.me"
+    if (window.location.host == host && window.location.protocol != "https:") {
       window.location.protocol = "https:"
     }
   </script>
