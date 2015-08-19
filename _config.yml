@@ -1,12 +1,16 @@
 # Site settings
 title: VJ Patel
 email: vj@vjpatel.me
-description: > 
-  Final year Computer Scientist at Queen Mary, University of London. 
+short_about: > 
+  I'm a final year Computer Scientist at Queen Mary, University of London who has taken a deep interest in Application Security and Cryptography. 
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://vjpatel.me" # the base hostname & protocol for your site
-twitter_username: vjftw
-github_username:  vjftw
+twitter_username: VJftw
+github_username:  VJftw
+linkedin_name: Vijendra Patel
+linkedin_url: 
+google_plus_name: VJ Patel
+google_plus_url:
 timezone: Europe/London
 
 # Build settings

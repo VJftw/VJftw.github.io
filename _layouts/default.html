@@ -5,7 +5,6 @@
 
   <body>
 
-
   {% include header.html %}
   <div class="container clearfix">
 
@@ -20,6 +19,45 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+  <script src="{{ '/js/textillate.min.js' | prepend: site.baseurl }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js"></script>
+
+
+<script type="text/javascript">
+  jQuery(function () {
+      greeting = jQuery('.short-about div h1');
+      intro = jQuery('.short-about div h2');
+      recent_posts = jQuery('#recent-posts');
+      // recent_posts.hide();
+      
+      greeting.textillate({ in: { effect: 'fadeIn' } });
+      intro.textillate({ 
+        initialDelay: 500, 
+        in: { 
+          effect: 'fadeIn',
+          delay: 50
+        }, 
+        type: 'word',
+        callback: function() {
+          // recent_posts.show().addClass('animated fadeIn');
+        }
+      });
+
+
+  })
+
+
+    
+//     greeting.hide();
+//     intro.hide();
+
+//     greeting.show().addClass('animated fadeInLeft');
+
+//     greeting.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+//         intro.show().addClass('animated fadeInLeft');
+//     });
+// </script>
   </body>
 
 </html>

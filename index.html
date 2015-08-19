@@ -3,35 +3,35 @@ layout: default
 ---
 <div class="row">
 
-    <div class="col-md-7">
+    <div class="col-md-9">
         <div class="short-about panel-default">
             <div class="panel-body">
-
-                <h1>
-                    Hi,</h1>
-                <h2>I'm a final year Computer Scientist at Queen Mary, University of London who has taken a deep interest in Application Security and Cryptography.</h2>
+                <div class="row">
+                    <h1 class="col-md-12">Hi,</h1>
+                </div>
+                <div class="row">
+                    <h2 class="col-md-12">{{ site.short_about }}</h2>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="col-md-5">
-            <div class="panel panel-default">
+    <div class="col-md-3 hidden-xs hidden-sm">
+            <div id="recent-posts" class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Recent Posts</h3>
                 </div>
-                <div class="panel-body">
-                    {% assign posts = site.posts | where:"layout", "post" %}
-                    {% for post in posts reversed limit: 5 %}
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h4>
-                                    <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-                                    <small class="text-right pull-right">{{ post.date | date: "%b %-d, %Y" }}</small>
-                                </h4>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-        </div>
+                <ul class="list-group">
+                {% assign posts = site.posts | where:"layout", "post" %}
+                {% for post in posts reversed limit: 5 %}
+                    <li class="list-group-item">
+                        <h4>
+                            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+                            <small class="text-right pull-right">{{ post.date | date: "%b %-d, %Y" }}</small>
+                        </h4>
+                    </li>
+                {% endfor %}
+                </ul>
+        </div> 
     </div>
 </div>
