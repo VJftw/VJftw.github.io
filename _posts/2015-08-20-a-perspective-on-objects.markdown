@@ -6,6 +6,8 @@ date:   2015-08-15 12:24:03
 categories: development object-orientated
 ---
 
+**Note:** This is a work-in-progress. I'm revamping an old post from 2012.
+
 I'm sure that if you're reading this, you've heard of a phenomenon called Object-Oriented Programming/Design(OOP/OOD respectively). If you haven't, in a nutshell it's just a way of thinking about problems or situations in a more materialistic manner in order to make solving or modelling them easier.
 
 ##What makes an object?
@@ -15,7 +17,7 @@ For example, I don’t know, let's talk about pizza. I like pizza. When shown a 
 
 This could look something like this:
 
-###Pizza
+####Pizza
 
 {: .table .table-striped}
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -30,7 +32,7 @@ Note: We could go deeper (or shallower for that matter) but I'm deeming that unn
 
 Now, with our *Pizza* object above, we can describe a *Pepperoni Pizza* using those attributes, for example:
 
-###Pepperoni Pizza
+####Pepperoni Pizza
 
 {: .table .table-striped}
 |---------------|---------------|
@@ -45,36 +47,35 @@ Now, with our *Pizza* object above, we can describe a *Pepperoni Pizza* using th
 ###So we have our object, now what?
 Right now, all we have is a very simple definition of a *Pepperoni Pizza*. Think about what you could do with a *Pepperoni Pizza*... You can eat it! So let's make that our requirement: *We should be able to eat a Pizza*
 
+Next we think about what states our Pizza can be in to satisfy this requirement. *Eating* a pizza implies that it can be *Eaten* or *!Eaten*. 
+We need to keep track of this state and we can use a boolean(True/False) primitive type to store it like so:
 
+####Pepperoni Pizza
 
+{: .table .table-striped}
+|---------------|---------------|
+| Attribute 	| Value 		|
+|---------------|---------------|
+| Base type 	| Deep-pan 		|
+| Cheese 		| Mozzarella 	|
+| Base sauce 	| Tomato 		|
+| Toppings 		| Pepperoni 	|
+| Eaten 		| False 	 	|
 
-Extra Properties
-With the attributes of our Pizza in place, we now think about its states. Any object of course can have an infinite number of states, however the good thing is that we only need to model the states that we're interested in and that depends on the scenario. For example, in most scenarios a pizza will be eaten (or the people modelling this hate pizza :(). Now in our situation, we can find 2 different states that a pizza can be in, Eaten and Not Eaten. To model this, we would extend our Pizza to have one more attribute that stores this particular state: Eaten.
-Our (half) Pizza will now look like this:
-Pizza
-Attribute
-Value
-Base Type
-Deep pan
-Type of Cheese
-Mozzarella
-Base Sauce
-Tomato
-Toppings
-Pepperoni
-Eaten
-True/False
-Getting From A to B
-Now, to transfer between different states, we use methods/procedures/functions that I mentioned earlier. In maths, we're taught many methods that we use at our disposal to solve mathematical problems. For example, when we differentiate a fraction we use the Quotient rule. This is expressed as:
+Next we can draw a FSM(Finite State Machine) that portrays how this our *Pizza* object will transition between an *Eaten* and *!Eaten* state.
 
+**TODO: Learn SVG css stuff and draw FSM with it**
 
-Using this, we sub in our values for u and v and this gives us our solution. Substituting values can be related to adding parameters to functions, but explaining this will involve more maths and programming explanations.
-A True/False type would normally indicate that we would toggle between the True and False states, however in our model, a Pizza once Eaten will remain Eaten. There are many different conventions to what you can name themethods/procedures/functions, but for this example we will just use Eat. The table below shows this method.
-Pizza
-Method
-Description
-Eat
-Set the Eaten attribute to 'True'
-Perfection?
-It's arguably impossible to perfectly solve real world problems with 100% accuracy depending on how random you believe random is. However, it is possible to create a theoretical model for anything which is close to a perfect solution.
-Before I learnt about Object-oriented design, I would have had no idea how to model, for example, a relationship between people. We can take our focus entity John and monitor him to see how he interacts with Steve and Ted. If John speaks to Steve more than Ted we can naturally assume that John likes Steve more than Ted. However, this isn't flawless as John may secretly hate Steve but speaks to him for help on his work or something. You could dive in deeper and analyse what their conversations are about, work? life? anything and everything? but as we get closer to perfectly accurate, the amount of time to process all of this information increases exponentially and so we end up with a trade-off between accuracy and time.
+Normally we don't need to do physically draw out an FSM, as a lot of requirments are simple enough to visualise in your head.
+
+So with our FSM, we have identified a single transition *Eat* which changes our *Pizza* from *!Eaten* to *Eaten*.
+
+This single transition *Eat* isn't a quality of a *Pizza*, it's an **action** you can take on a *Pizza*, therefore this should be implemented as a method that sets *Eaten* to True.
+
+###Limitations
+
+**TODO: Clean up and mention randomness**
+
+It's arguably impossible to perfectly solve many real world problems as we can model and make predictions based on data we are given. However, it is possible to create a theoretical model for anything which is close to a perfect solution.
+
+With OOP we can solve more challenging problems, for example a relationship between two people. We can take a focus entity John and monitor him to see how he interacts with Steve and Ted. If John speaks to Steve more than Ted we can naturally assume that John likes Steve more than Ted. However, this isn't flawless as John may secretly hate Steve but speaks to him for help on his work or something. You could dive in deeper and analyse what their conversations are about, work? life? anything and everything? but as we get closer to perfectly accurate, the amount of time to process all of this information increases exponentially and so we end up with a trade-off between accuracy and time.
