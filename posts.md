@@ -15,6 +15,11 @@ permalink: /blog/
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-md-12">
+                            <p>{{ post.summary }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-8">
                                 {% if post.categories[0] %}
                                     <span class="label label-primary">{{ post.categories[0] }}</span>
