@@ -67,7 +67,7 @@ jQuery(function () {
 
 	// Last.fm tracks
 	if (jQuery('.lastfm-last-played').length) {
-      jQuery.getJSON("http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=mclarenvj&api_key=5b801a66d1a34e73b6e563afc27ef06b&limit=2&format=json&callback=?", function(data) {
+      jQuery.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=mclarenvj&api_key=5b801a66d1a34e73b6e563afc27ef06b&limit=2&format=json&callback=?", function(data) {
 
           var html = ''; // we declare the variable that we'll be using to store our information
           var counter = 1; // we declare a counter variable to use with the if statement in order to limit the result to 1
