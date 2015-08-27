@@ -1,15 +1,35 @@
 ---
 layout: default
 ---
-<div class="post">
-
-    <header class="post-header">
-        <h1 class="post-title">{{ page.title }}</h1>
-        <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-    </header>
-
-    <article class="post-content">
-        {{ content }}
-    </article>
-
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>{{ page.title }}</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<p class="lead">{{ page.summary }}</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+		<p>{{ content }}</p>
+		</div>
+		{% if page.trello_board_id %}
+			<div class="col-md-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+				    	<h3 class="panel-title">Feature progress</h3>
+					</div>
+					<table class="table trello-features" board="{{ page.trello_board_id}}">
+					<tr>
+						<td><i class="fa fa-spin fa-refresh"></i></td>
+					</tr>
+					</table>
+				</div>
+			</div>
+		{% endif %}
+	</div>
 </div>
+
