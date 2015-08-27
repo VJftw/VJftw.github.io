@@ -22,56 +22,13 @@ layout: default
 					<div class="panel-heading">
 				    	<h3 class="panel-title">Feature progress</h3>
 					</div>
-					<table class="table trello-features">
+					<table class="table trello-features" board="{{ page.trello_board_id}}">
 					<tr>
 						<td><i class="fa fa-spin fa-refresh"></i></td>
 					</tr>
 					</table>
 				</div>
 			</div>
-							<!-- Trello API -->
-			<script src="https://api.trello.com/1/client.js?key=4b1c19d05b3ada3ae1fbade211cbdb3b"></script>
-
-			<script>
-			jQuery(function () {
-				// Trello API
-				
-				Trello.get('/boards/{{ page.trello_board_id }}/lists', { cards: 'open' }, function(responseJSON) {
-					html = "";
-
-					jQuery('.trello-features').html(html);
-					responseJSON.forEach(function(list) {
-						if (list.name != 'preBacklog') {
-
-							switch (list.name) {
-								case 'Deployed':
-									label = 'label-success';
-									break;
-								case 'Implement':
-									label = 'label-primary';
-									break;
-								case 'Backlog':
-									label = 'label-info';
-									break;
-								case 'Specify':
-									label = 'label-warning';
-									break;
-								default:
-									label = 'label-default';
-							}
-					
-							list.cards.forEach(function(card) {
-								last_activity = moment(card.dateLastActivity);
-								card_row = '<tr class="animated fadeIn"><td>' + card.name + '</td><td>'+ last_activity.fromNow() + '</td><td><span class="pull-right label ' + label + '">' + list.name + '</span></td></tr>';
-								jQuery('.trello-features').append(card_row);
-							});
-						}
-					});
-
-
-				});
-			})
-			</script>
 		{% endif %}
 	</div>
 </div>
