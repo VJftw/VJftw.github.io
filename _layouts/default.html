@@ -1,7 +1,41 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
-  {% include head.html %}
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{{ '/css/cosmo.bootstrap.min.css' | prepend: site.baseurl }}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="{{ '/css/animate.css' | prepend: site.baseurl }}">
+
+    <link rel="stylesheet" href="{{ '/css/styles.css' | prepend: site.baseurl }}">
+
+   <!-- jQuery -->
+    <script src="{{ '/js/jquery.min.js' | prepend: site.baseurl }}"></script>
+    <script src="{{ '/js/bootstrap.min.js' | prepend: site.baseurl }}"></script>
+
+    <script src="{{ '/js/lettering.min.js' | prepend: site.baseurl }}"></script>
+    <script src="{{ '/js/textillate.min.js' | prepend: site.baseurl }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+
+
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
 
   <body>
 
@@ -12,40 +46,21 @@
         {{ content }}
     </div>
 
-
-
     {% include footer.html %}
 
   </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="{{ '/js/bootstrap.min.js' | prepend: site.baseurl }}"></script>
 
+  <script src="{{ '/js/lettering.min.js' | prepend: site.baseurl }}"></script>
   <script src="{{ '/js/textillate.min.js' | prepend: site.baseurl }}"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js"></script>
+
+  <!-- Trello API Client -->
 
 
 <script type="text/javascript">
   jQuery(function () {
-      greeting = jQuery('.short-about div h1');
-      intro = jQuery('.short-about div h2');
-      recent_posts = jQuery('#recent-posts');
-      // recent_posts.hide();
-      
-      greeting.textillate({ in: { effect: 'fadeIn' } });
-      intro.textillate({ 
-        initialDelay: 500, 
-        in: { 
-          effect: 'fadeIn',
-          delay: 50
-        }, 
-        type: 'word',
-        callback: function() {
-          // recent_posts.show().addClass('animated fadeIn');
-        }
-      });
-
       // Last.fm tracks
       $.getJSON("http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=mclarenvj&api_key=5b801a66d1a34e73b6e563afc27ef06b&limit=2&format=json&callback=?", function(data) {
 
@@ -59,20 +74,9 @@
           }); // close each loop
           $('.lastfm-last-played').html(html); // print the information to the document - here I look for the h5 tag inside the div with a class of 'listening-to' and use the jQuery append method to insert the information we've stored in the html variable inside the h5 tag.
       }); // close JSON call
-
   })
 
-
-    
-//     greeting.hide();
-//     intro.hide();
-
-//     greeting.show().addClass('animated fadeInLeft');
-
-//     greeting.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
-//         intro.show().addClass('animated fadeInLeft');
-//     });
-// </script>
-  </body>
+</script>
+</body>
 
 </html>
