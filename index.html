@@ -7,10 +7,10 @@ layout: default
         <div class="short-about panel-default">
             <div class="panel-body">
                 <div class="row">
-                    <h1 class="col-md-12">Hi,</h1>
+                    <h1 class="col-md-12 hidden">Hi,</h1>
                 </div>
                 <div class="row">
-                    <h2 class="col-md-12">{{ site.short_about }}</h2>
+                    <h2 class="col-md-12 hidden">{{ site.short_about }}</h2>
                 </div>
             </div>
         </div>
@@ -41,3 +41,25 @@ layout: default
         </div> 
     </div>
 </div>
+
+<script>
+jQuery(function () {
+    greeting = jQuery('.short-about div h1');
+    intro = jQuery('.short-about div h2');
+    recent_posts = jQuery('#recent-posts');
+    // recent_posts.hide();
+
+    greeting.removeClass('hidden').textillate({ in: { effect: 'fadeIn' } });
+    intro.removeClass('hidden').textillate({ 
+        initialDelay: 500, 
+        in: { 
+          effect: 'fadeIn',
+          delay: 50
+        }, 
+        type: 'word',
+        callback: function() {
+          // recent_posts.show().addClass('animated fadeIn');
+        }   
+    });
+});
+</script>
