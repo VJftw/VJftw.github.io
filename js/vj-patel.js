@@ -54,7 +54,7 @@ jQuery(function () {
 				
 						list.cards.forEach(function(card) {
 							last_activity = moment(card.dateLastActivity);
-							card_row = '<tr class="animated fadeIn"><td>' + card.name + '</td><td>'+ last_activity.fromNow() + '</td><td><span class="pull-right label ' + label + '">' + list.name + '</span></td></tr>';
+							card_row = '<tr class="animated fadeIn"><td>' + card.name + '</td><td><small>'+ last_activity.fromNow() + '</small></td><td><span class="pull-right label ' + label + '">' + list.name + '</span></td></tr>';
 							jQuery('.trello-features').append(card_row);
 						});
 					}
