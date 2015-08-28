@@ -73,7 +73,8 @@ jQuery(function () {
           var counter = 1; // we declare a counter variable to use with the if statement in order to limit the result to 1
           jQuery.each(data.recenttracks.track, function(i, item) {
               if(counter == 1) {
-                  html += '<i class="fa fa-headphones"></i> <span><a href="' + item.url + '" target="_blank">' + item.name + '</a> - ' + item.artist['#text'] + '</span>';
+              		last_scrobble = moment.unix(item.date.uts);
+                  	html += '<i class="fa fa-headphones"></i> <span><a href="' + item.url + '" target="_blank">' + item.name + '</a> - ' + item.artist['#text'] + '<br /><small>' + last_scrobble.fromNow() + '</small></span>';
               } // close the if statement
               counter++ // add 1 to the counter variable each time the each loop runs
           }); // close each loop
