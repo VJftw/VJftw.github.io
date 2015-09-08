@@ -3,11 +3,12 @@ layout: project
 title: Website/Portfolio
 short_description: Migrating from WordPress to Jekyll + GitHub Pages
 date: 2015-05-10
-categories: jekyll github
+categories: github jekyll
 status: in-progress
 trello_board_id: CxYeXDyH 
 ---
 
-I used to host my blog/website on a small VPS with OVH. 
+From 2012 to 2014, I hosted my website/portfolio with WordPress on a VPS, going through the following providers: ValueVPS, OVH and DigitalOcean.
 
-Recently, i've decided to move to the free GitHub Pages with Jekyll so I also have a permanent store of all of my posts and data.
+This year (2015), I've decided to move to GitHub Pages using Jekyll to generate this static website and use CloudFlare to cache the pages and provide SSL all for free!
+
