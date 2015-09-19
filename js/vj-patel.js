@@ -84,5 +84,27 @@ jQuery(function () {
           jQuery('.lastfm-last-played').html(html);
       }); 
 	}
+
+	// Travis CI last build
+	if (jQuery('.travis-last-build').length) {
+		jQuery.getJSON("https://api.travis-ci.org/repos/VJftw/vault-api", function(data) {
+			console.log(data);
+
+			last_build_time = moment(data.last_build_finished_at).fromNow();
+			console.log(last_build_time);
+
+			switch (data.last_build_status) {
+				case 0:
+					label = 'label-success';
+					text = "Success";
+					break;
+			}
+
+			html = '<i class="fa fa-cogs"></i> <span><span class="label ' + label + '">' + text + '</span><a href="">' + data.slug + '</a><br /><small>'+ last_build_time +'</small></span>';
+
+			jQuery('.travis-last-build').html(html);
+
+		});
+	}
     
 });
