@@ -66,10 +66,8 @@ jQuery(function () {
 	}
 
 	// Last.fm tracks
-	if (jQuery('.lastfm-last-played').length) {
+	if (jQuery('.lastfm-track').length) {
       jQuery.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=mclarenvj&api_key=5b801a66d1a34e73b6e563afc27ef06b&limit=2&format=json&callback=?", function(data) {
-
-          var html = '';
 
           last_song = data.recenttracks.track[0];
 
@@ -79,14 +77,20 @@ jQuery(function () {
               scrobble_time = "Now";
           }
           
-            html += '<i class="fa fa-headphones"></i> <span><a href="' + last_song.url + '" target="_blank">' + last_song.name + '</a> - ' + last_song.artist['#text'] + '<br /><small>' + scrobble_time + '</small></span>';
+            // html += '<i class="fa fa-headphones"></i> <span><a href="' + last_song.url + '" target="_blank">' + last_song.name + '</a> - ' + last_song.artist['#text'] + '<br /><small>' + scrobble_time + '</small></span>';
           
-          jQuery('.lastfm-last-played').html(html);
+          // jQuery('.lastfm-last-played').html(html);
+
+          jQuery('.lastfm-track').html(last_song.name);
+          jQuery('.lastfm-track').parent().attr('href', last_song.url);
+          jQuery('.lastfm-artist').html(last_song.artist['#text']);
+          jQuery('.lastfm-timestamp').html(scrobble_time);
+          jQuery('.lastfm-icon').removeClass('fa-spin').removeClass('fa-refresh').addClass('fa-headphones');
       }); 
 	}
 
 	// Travis CI last build
-	if (jQuery('.travis-last-build').length) {
+	if (jQuery('.travis-repo').length) {
 		jQuery.getJSON("https://api.travis-ci.org/repos/VJftw/vault-api", function(data) {
 			console.log(data);
 
@@ -95,14 +99,19 @@ jQuery(function () {
 
 			switch (data.last_build_status) {
 				case 0:
-					label = 'label-success';
+					label_status = 'success';
 					text = "Success";
 					break;
+				default:
+					label_status = 'danger';
+					text = "Failed";
 			}
 
-			html = '<i class="fa fa-cogs"></i> <span><span class="label ' + label + '">' + text + '</span><a href="">' + data.slug + '</a><br /><small>'+ last_build_time +'</small></span>';
-
-			jQuery('.travis-last-build').html(html);
+			jQuery('.travis-repo').html(data.slug);
+			jQuery('.travis-repo').parent().attr('href', 'https://travis-ci.org/' + data.slug);
+			jQuery('.travis-timestamp').html(last_build_time);
+			jQuery('.travis-status').addClass('label-' + label_status).html("Build "+text);
+			jQuery('.travis-icon').removeClass('fa-spin').removeClass('fa-refresh').addClass('fa-cogs');
 
 		});
 	}

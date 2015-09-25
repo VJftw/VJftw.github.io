@@ -19,9 +19,9 @@
         <li><i class="fa fa-google-plus"></i> <a target="_blank" href="{{ site.google_plus_url }}">{{ site.google_plus_name }}</a></li>
       </ul>
     </div>
-    <div class="col-md-4 hidden-xs">
+   <!--  <div class="col-md-4 hidden-xs">
       <p class="text-right">
-        <em class="travis-last-build"><i class="fa fa-cogs"></i></em>
+        <em class="travis-last-build"><i class="fa fa-spin fa-refresh"></i></em>
       </p>
       <p class="text-right">
          <em class="lastfm-last-played"><i class="fa fa-spin fa-refresh"></i></em>
@@ -29,12 +29,32 @@
     </div>
     <div class="col-xs-4 hidden-sm hidden-md hidden-lg">
       <p>
-        <em class="travis-last-build"><i class="fa fa-cogs"></i></em>
+        <em class="travis-last-build"><i class="fa fa-spin fa-refresh"></i></em>
       </p>
       <p>
          <em class="lastfm-last-played"><i class="fa fa-spin fa-refresh"></i></em>
       </p>
 
-    </div>
+    </div> -->
+    <div class="col-sm-offset-1 col-sm-3">
+      <ul class="list-unstyled">
+        <li>
+          <i class="lastfm-icon fa fa-spin fa-refresh"> </i> 
+          <a href="" target="_blank"><span class="lastfm-track"></span></a> - 
+          <em><span class="lastfm-artist"></span></em>
+          <div class="text-right">
+            <small><span class="lastfm-timestamp"></span></small>
+          </div>
+        </li>
+        <li>
+          <i class="travis-icon fa fa-spin fa-refresh"> </i> 
+          <a href="" target="_blank"><span class="travis-repo"></span></a> - 
+          <em><span class="travis-status label"></span></em>
+          <div class="text-right">
+            <small><span class="travis-timestamp"></span></small>
+          </div>
+        </li>
+      </ul>
+    </div>  
   </div>
 </footer>
