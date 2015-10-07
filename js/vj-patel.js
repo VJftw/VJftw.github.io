@@ -77,10 +77,6 @@ jQuery(function () {
               scrobble_time = "Now";
           }
           
-            // html += '<i class="fa fa-headphones"></i> <span><a href="' + last_song.url + '" target="_blank">' + last_song.name + '</a> - ' + last_song.artist['#text'] + '<br /><small>' + scrobble_time + '</small></span>';
-          
-          // jQuery('.lastfm-last-played').html(html);
-
           jQuery('.lastfm-track').html(last_song.name);
           jQuery('.lastfm-track').parent().attr('href', last_song.url);
           jQuery('.lastfm-artist').html(last_song.artist['#text']);
