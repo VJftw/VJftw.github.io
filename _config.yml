@@ -15,95 +15,106 @@ timezone: Europe/London
 
 # Qualifications
 qualifications:
-    - name: Computer Science BSc with Industrial Experience (2012 - 2016)
+    - name: Computer Science BSc with Industrial Experience
+      year_range: 2012 - 2016
       institutions:
         - name: Queen Mary, University of London
           uri: http://www.qmul.ac.uk
           years:
             - name: Final Year
+              year_range: 2015/16
               weight: 65
+              credits: 120
               modules:
                 - name: Project
-                  weight: 50
+                  credits: 30
                 - name: Algorithms and Complexity
-                  weight: 12.5
+                  credits: 15
                 - name: Embedded Systems
-                  weight: 12.5
+                  credits: 15
                 - name: Advanced Database Systems and Technology
-                  weight: 12.5
+                  credits: 15
                 - name: Distributed Systems and Security
-                  weight: 12.5
+                  credits: 15
                 - name: Computability
-                  weight: 12.5
+                  credits: 15
                 - name: Web Programming
-                  weight: 12.5
-            - name: Industrial Experience @ Ultra Violet Design (UVD)
-              uri: http://www.uvd.co.uk
+                  credits: 15
+            - name: Industrial Experience @ <a target="_blank" href="http://www.uvd.co.uk">Ultra Violet Design (UVD)</a>
+              year_range: 2014/15
+              score: 77.0
               weight: 7
+              credits: 30
               modules:
                 - name: Industrial Placement
                   score: 77.0
-                  weight: 100
+                  credits: 30
             - name: Second Year
+              year_range: 2013/14
+              score: 69.48
               weight: 28
+              credits: 120
               modules:
                 - name: Software Engineering
                   score: 73.4
-                  weight: 12.5
+                  credits: 15
                 - name: Probability and Matrices
                   score: 59.3
-                  weight: 12.5
+                  credits: 15
                 - name: Algorithms and Data Structures in an Object-Orientated Framework
                   score: 66.0
-                  weight: 12.5
+                  credits: 15
                 - name: Internet Protocols and Applications
                   score: 67.4
-                  weight: 12.5
+                  credits: 15
                 - name: Software Engineering Project
-                  score: 94
-                  weight: 12.5
+                  score: 94.0
+                  credits: 15
                 - name: Operating Systems
                   score: 64.7
-                  weight: 12.5
+                  credits: 15
                 - name: Database Systems
                   score: 64.7
-                  weight: 12.5
+                  credits: 15
                 - name: Graphical User Interfaces
                   score: 66.4
-                  weight: 12.5
+                  credits: 15
         - name: Hertfordshire University
           uri: http://www.herts.ac.uk
           years:
             - name: First Year
+              year_range: 2012/13
+              score: 89.125
               weight: 0
+              credits: 120
               modules:
                 - name: Programming Principles
                   score: 97.1
-                  weight: 12.5
+                  credits: 15
                 - name: Foundations of Computation
                   score: 93.2
-                  weight: 12.5
+                  credits: 15
                 - name: E-Media Design
                   score: 88.4
-                  weight: 12.5
+                  credits: 15
                 - name: System Requirements
                   score: 83.2
-                  weight: 12.5
+                  credits: 15
                 - name: Programming and Program Design
                   score: 91.4
-                  weight: 12.5
+                  credits: 15
                 - name: Data Driven Systems
                   score: 87.4
-                  weight: 12.5
+                  credits: 15
                 - name: Principles of Network Systems
                   score: 77.45
-                  weight: 12.5
+                  credits: 15
                 - name: Internet Technologies
                   score: 88.25
-                  weight: 12.5
+                  credits: 15
                 - name: Professional and Academic Skills
                   score: 73.6
-                  weight: 0
+                  credits: 0
 
 
 # Build settings
