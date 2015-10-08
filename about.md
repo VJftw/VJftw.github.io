@@ -22,7 +22,11 @@ permalink: /about/
                                     <h4>{{ year.name }} <small>({{ year.year_range}})</small></h4>
                                 </div>
                                 <div class="col-md-1">
-                                    <span class="label label-success">{{ year.score }}%</span>
+                                    {% if year.score %}
+                                        <span class="label label-success">{{ year.score }}%</span>
+                                    {% else %}
+                                        <span class="label label-info">Sitting</span>
+                                    {% endif %}
                                 </div>
                                 <div class="col-md-1">
                                     <small>{{ year.credits }} credits</small>
@@ -37,13 +41,22 @@ permalink: /about/
                                         {% for module in year.modules %}
                                             <li class="list-group-item clearfix">
                                                 <div class="col-md-10">{{ module.name }}</div>
-                                                <div class="col-md-1 text-right">
-                                                {{ module.score }}
-                                                </div>
-                                                <div class="col-md-1 text-right">
-                                                {% assign module_gained_credits = module.score|divided_by:100|times:module.credits %}
-                                                <small>{{ module_gained_credits | round }}/{{ module.credits}}</small>
-                                                </div>
+                                                {% if module.score %}
+                                                    <div class="col-md-1 text-right">
+                                                        {{ module.score }}
+                                                    </div>
+                                                    <div class="col-md-1 text-right">
+                                                    {% assign module_gained_credits = module.score|divided_by:100|times:module.credits %}
+                                                    <small>{{ module_gained_credits | round }}/{{ module.credits}}</small>
+                                                    </div>
+                                                    {% else %}
+                                                        <div class="col-md-1 text-right">
+                                                            <span class="label label-info">N/A</span>
+                                                        </div>
+                                                        <div class="col-md-1 text-right">
+                                                            <small>{{ module.credits }}</small>
+                                                        </div>
+                                                    {% endif %}
                                             </li>
                                         {% endfor %}
                                     </ul>
