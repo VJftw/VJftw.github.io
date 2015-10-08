@@ -58,8 +58,8 @@ permalink: /about/
                             >
                                 <ul class="list-group">
                                     <li class="list-group-item clearfix">
-                                        <div class="col-md-10"><strong>Module Name</strong></div>
-                                        <div class="col-md-1 text-right"><strong>%</strong></div>
+                                        <div class="col-md-10"><small><strong>Module</strong></small></div>
+                                        <div class="col-md-1 text-right"><small><strong>%</strong></small></div>
                                         <div class="col-md-1 text-right"><small><strong>Credits</strong></small></div>
                                     </li>
                                     {% for module in year.modules %}
