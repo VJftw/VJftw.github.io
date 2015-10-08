@@ -13,6 +13,99 @@ google_plus_name: VJ Patel
 google_plus_url: https://google.com/+VJPatel1994
 timezone: Europe/London
 
+# Qualifications
+qualifications:
+    - name: Computer Science BSc with Industrial Experience (2012 - 2016)
+      institutions:
+        - name: Queen Mary, University of London
+          uri: http://www.qmul.ac.uk
+          years:
+            - name: Final Year
+              weight: 65
+              modules:
+                - name: Project
+                  weight: 50
+                - name: Algorithms and Complexity
+                  weight: 12.5
+                - name: Embedded Systems
+                  weight: 12.5
+                - name: Advanced Database Systems and Technology
+                  weight: 12.5
+                - name: Distributed Systems and Security
+                  weight: 12.5
+                - name: Computability
+                  weight: 12.5
+                - name: Web Programming
+                  weight: 12.5
+            - name: Industrial Experience @ Ultra Violet Design (UVD)
+              uri: http://www.uvd.co.uk
+              weight: 7
+              modules:
+                - name: Industrial Placement
+                  score: 77.0
+                  weight: 100
+            - name: Second Year
+              weight: 28
+              modules:
+                - name: Software Engineering
+                  score: 73.4
+                  weight: 12.5
+                - name: Probability and Matrices
+                  score: 59.3
+                  weight: 12.5
+                - name: Algorithms and Data Structures in an Object-Orientated Framework
+                  score: 66.0
+                  weight: 12.5
+                - name: Internet Protocols and Applications
+                  score: 67.4
+                  weight: 12.5
+                - name: Software Engineering Project
+                  score: 94
+                  weight: 12.5
+                - name: Operating Systems
+                  score: 64.7
+                  weight: 12.5
+                - name: Database Systems
+                  score: 64.7
+                  weight: 12.5
+                - name: Graphical User Interfaces
+                  score: 66.4
+                  weight: 12.5
+        - name: Hertfordshire University
+          uri: http://www.herts.ac.uk
+          years:
+            - name: First Year
+              weight: 0
+              modules:
+                - name: Programming Principles
+                  score: 97.1
+                  weight: 12.5
+                - name: Foundations of Computation
+                  score: 93.2
+                  weight: 12.5
+                - name: E-Media Design
+                  score: 88.4
+                  weight: 12.5
+                - name: System Requirements
+                  score: 83.2
+                  weight: 12.5
+                - name: Programming and Program Design
+                  score: 91.4
+                  weight: 12.5
+                - name: Data Driven Systems
+                  score: 87.4
+                  weight: 12.5
+                - name: Principles of Network Systems
+                  score: 77.45
+                  weight: 12.5
+                - name: Internet Technologies
+                  score: 88.25
+                  weight: 12.5
+                - name: Professional and Academic Skills
+                  score: 73.6
+                  weight: 0
+
+
 # Build settings
 markdown: kramdown
 sass:
