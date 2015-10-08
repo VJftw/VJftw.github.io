@@ -1,8 +1,8 @@
 # Site settings
 title: VJ Patel
 email: vj@vjpatel.me
-short_about: > 
-  I'm a final year Computer Scientist at Queen Mary, University of London who has taken a deep interest in Application Security, Cryptography and the Internet of Things. 
+short_about: >
+  I'm a final year Computer Scientist at Queen Mary, University of London who has taken a deep interest in Application Security, Cryptography and the Internet of Things.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://vjpatel.me" # the base hostname & protocol for your site
 twitter_username: VJftw
@@ -40,7 +40,8 @@ qualifications:
                   credits: 15
                 - name: Web Programming
                   credits: 15
-            - name: Industrial Experience @ <a target="_blank" href="http://www.uvd.co.uk">Ultra Violet Design (UVD)</a>
+            - name: Industrial Experience
+              location: <a target="_blank" href="http://www.uvd.co.uk">Ultra Violet Design (UVD)</a>
               year_range: 2014/15
               score: 77.0
               weight: 7

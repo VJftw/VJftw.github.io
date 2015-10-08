@@ -8,17 +8,28 @@ jQuery(function () {
 	    recent_posts = jQuery('#recent-posts');
 
 	    greeting.removeClass('hidden').textillate({ in: { effect: 'fadeIn' } });
-	    intro.removeClass('hidden').textillate({ 
-	        initialDelay: 500, 
-	        in: { 
+	    intro.removeClass('hidden').textillate({
+	        initialDelay: 500,
+	        in: {
 	          effect: 'fadeIn',
 	          delay: 50
-	        }, 
+	        },
 	        type: 'word',
 	        callback: function() {
 	          // recent_posts.show().addClass('animated fadeIn');
-	        }   
-	    });	
+	        }
+	    });
+	}
+
+	if (jQuery('a[data-toggle="collapse"]').length) {
+		jQuery('.collapse').on('show.bs.collapse', function() {
+			chevron = jQuery(this).parent().find('a[data-toggle="collapse"] i');
+			chevron.removeClass('fa-chevron-down').addClass('fa-chevron-up');
+		});
+		jQuery('.collapse').on('hide.bs.collapse', function() {
+			chevron = jQuery(this).parent().find('a[data-toggle="collapse"] i');
+			chevron.removeClass('fa-chevron-up').addClass('fa-chevron-down');
+		});
 	}
 
 	// Projects
@@ -51,7 +62,7 @@ jQuery(function () {
 							default:
 								label = 'label-default';
 						}
-				
+
 						list.cards.forEach(function(card) {
 							last_activity = moment(card.dateLastActivity);
 							card_row = '<tr class="animated fadeIn"><td>' + card.name + '</td><td><small>'+ last_activity.fromNow() + '</small></td><td><span class="pull-right label ' + label + '">' + list.name + '</span></td></tr>';
@@ -62,7 +73,7 @@ jQuery(function () {
 
 
 			});
-		});	
+		});
 	}
 
 	// Last.fm tracks
@@ -76,13 +87,13 @@ jQuery(function () {
           } else {
               scrobble_time = "Now";
           }
-          
+
           jQuery('.lastfm-track').html(last_song.name);
           jQuery('.lastfm-track').parent().attr('href', last_song.url);
           jQuery('.lastfm-artist').html(last_song.artist['#text']);
           jQuery('.lastfm-timestamp').html(scrobble_time);
           jQuery('.lastfm-icon').removeClass('fa-spin').removeClass('fa-refresh').addClass('fa-headphones');
-      }); 
+      });
 	}
 
 	// Travis CI last build
@@ -111,5 +122,5 @@ jQuery(function () {
 
 		});
 	}
-    
+
 });
