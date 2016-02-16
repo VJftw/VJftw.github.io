@@ -100,7 +100,7 @@ jQuery(function () {
     if (jQuery('.travis-repo').length) {
 
         jQuery.getJSON('https://ci.vjpatel.me/api/json?tree=jobs[displayNameOrNull,url,lastBuild[timestamp,result]]&pretty=true', function(data) {
-
+            console.log(data);
             var latestJob;
             jQuery.each(data.jobs, function(i, item) {
                 if (item.displayNameOrNull) {
@@ -117,18 +117,22 @@ jQuery(function () {
 
             switch (latestJob.lastBuild.result) {
                 case "SUCCESS":
-                label_status = 'success';
-                text = "Success";
-                break;
+                  label_status = 'success';
+                  text = "Build Success";
+                  break;
+                case null:
+                  label_status = 'info';
+                  text = "Building";
+                  break;
                 default:
                 label_status = 'danger';
-                text = "Failed";
+                text = "Build Failed";
             }
 
             jQuery('.travis-repo').html(latestJob.displayNameOrNull);
             jQuery('.travis-repo').parent().attr('href', latestJob.url);
             jQuery('.travis-timestamp').html(last_build_time);
-            jQuery('.travis-status').addClass('label-' + label_status).html("Build "+text);
+            jQuery('.travis-status').addClass('label-' + label_status).html(text);
             jQuery('.travis-icon').removeClass('fa-spin').removeClass('fa-refresh').addClass('fa-cogs');
         });
     }
