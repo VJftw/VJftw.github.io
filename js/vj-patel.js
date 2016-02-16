@@ -99,8 +99,7 @@ jQuery(function () {
     // Jenkins CI last build
     if (jQuery('.travis-repo').length) {
 
-        jQuery.getJSON('http://ci.vjpatel.me:8080/api/json?tree=jobs[displayNameOrNull,url,lastBuild[timestamp,result]]&pretty=true', function(data) {
-            console.log(data);
+        jQuery.getJSON('https://ci.vjpatel.me/api/json?tree=jobs[displayNameOrNull,url,lastBuild[timestamp,result]]&pretty=true', function(data) {
 
             var latestJob;
             jQuery.each(data.jobs, function(i, item) {
@@ -115,7 +114,6 @@ jQuery(function () {
             });
 
             last_build_time = moment(latestJob.lastBuild.timestamp).fromNow();
-            console.log(last_build_time);
 
             switch (latestJob.lastBuild.result) {
                 case "SUCCESS":
