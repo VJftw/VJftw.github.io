@@ -11,14 +11,14 @@ jQuery(function () {
         intro.removeClass('hidden').textillate({
             initialDelay: 500,
             in: {
-              effect: 'fadeIn',
-              delay: 50
-          },
-          type: 'word',
-          callback: function() {
-              // recent_posts.show().addClass('animated fadeIn');
-          }
-      });
+                effect: 'fadeIn',
+                delay: 50
+            },
+            type: 'word',
+            callback: function() {
+                // recent_posts.show().addClass('animated fadeIn');
+            }
+        });
     }
 
     if (jQuery('a[data-toggle="collapse"]').length) {
@@ -78,62 +78,94 @@ jQuery(function () {
 
     // Last.fm tracks
     if (jQuery('.lastfm-track').length) {
-      jQuery.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=mclarenvj&api_key=5b801a66d1a34e73b6e563afc27ef06b&limit=2&format=json&callback=?", function(data) {
+        jQuery.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=mclarenvj&api_key=5b801a66d1a34e73b6e563afc27ef06b&limit=2&format=json&callback=?", function(data) {
 
-          last_song = data.recenttracks.track[0];
+            last_song = data.recenttracks.track[0];
 
-          if (last_song.hasOwnProperty('date')) {
-              scrobble_time = moment.unix(last_song.date.uts).fromNow();
-          } else {
-              scrobble_time = "Now";
-          }
+            if (last_song.hasOwnProperty('date')) {
+                scrobble_time = moment.unix(last_song.date.uts).fromNow();
+            } else {
+                scrobble_time = "Now";
+            }
 
-          jQuery('.lastfm-track').html(last_song.name);
-          jQuery('.lastfm-track').parent().attr('href', last_song.url);
-          jQuery('.lastfm-artist').html(last_song.artist['#text']);
-          jQuery('.lastfm-timestamp').html(scrobble_time);
-          jQuery('.lastfm-icon').removeClass('fa-spin').removeClass('fa-refresh').addClass('fa-headphones');
-      });
-  }
+            jQuery('.lastfm-track').html(last_song.name);
+            jQuery('.lastfm-track').parent().attr('href', last_song.url);
+            jQuery('.lastfm-artist').html(last_song.artist['#text']);
+            jQuery('.lastfm-timestamp').html(scrobble_time);
+            jQuery('.lastfm-icon').removeClass('fa-spin').removeClass('fa-refresh').addClass('fa-headphones');
+        });
+    }
 
     // Jenkins CI last build
     if (jQuery('.travis-repo').length) {
+        function setLastBuild(latestJob) {
+            if (latestJob) {
+                console.log(latestJob);
 
-        jQuery.getJSON('https://ci.vjpatel.me/api/json?tree=jobs[displayNameOrNull,url,lastBuild[timestamp,result]]&pretty=true', function(data) {
-            console.log(data);
+                last_build_time = moment(latestJob.lastCompletedBuild.timestamp).fromNow();
+
+                switch (latestJob.lastCompletedBuild.result) {
+                    case "SUCCESS":
+                    label_status = 'success';
+                    text = "Build Success";
+                    break;
+                    case null:
+                    label_status = 'info';
+                    text = "Building";
+                    break;
+                    default:
+                    label_status = 'danger';
+                    text = "Build Failed";
+                }
+
+                jQuery('.travis-repo').html(latestJob.displayNameOrNull);
+                jQuery('.travis-repo').parent().attr('href', latestJob.url);
+                jQuery('.travis-timestamp').html(last_build_time);
+                jQuery('.travis-status').addClass('label-' + label_status).html(text);
+                jQuery('.travis-icon').removeClass('fa-spin').removeClass('fa-refresh').addClass('fa-cogs');
+            }
+        }
+
+        // Get list of jobs
+
+        jQuery.getJSON('https://ci.vjpatel.me/api/json?tree=jobs[displayNameOrNull,url,lastCompletedBuild[timestamp,result]]', function(data) {
             var latestJob;
             jQuery.each(data.jobs, function(i, item) {
-                if (item.displayNameOrNull) {
-                    if (!latestJob) {
-                        latestJob = item;
-                    } else if (latestJob.lastBuild.timestamp < item.lastBuild.timestamp) {
-                        latestJob = item;
+
+                if (item.displayNameOrNull) { // has display name
+                    if (item.lastCompletedBuild) {
+                        if (!latestJob) {
+                            latestJob = item;
+                        } else if (latestJob.lastCompletedBuild.timestamp < item.lastCompletedBuild.timestamp) {
+                            latestJob = item;
+                        }
+                    } else { // use master or develop branch
+                        jQuery.getJSON(item.url + '/branch/master/api/json?tree=url,lastCompletedBuild[timestamp,result]', function(data) {
+
+                            data.displayNameOrNull = item.displayNameOrNull;
+                            if (!latestJob && data.lastCompletedBuild) {
+                                latestJob = data;
+                            } else if (data.lastCompletedBuild && latestJob.lastCompletedBuild.timestamp < data.lastCompletedBuild.timestamp) {
+                                latestJob = data;
+                            } else {
+                                jQuery.getJSON(item.url + '/branch/develop/api/json?tree=url,lastCompletedBuild[timestamp,result]', function(data) {
+
+                                    data.displayNameOrNull = item.displayNameOrNull;
+                                    if (!latestJob && data.lastCompletedBuild) {
+                                        latestJob = data;
+                                    } else if (data.lastCompletedBuild && latestJob.lastCompletedBuild.timestamp < data.lastCompletedBuild.timestamp) {
+                                        latestJob = data;
+                                    }
+                                    setLastBuild(latestJob);
+                                });
+                            }
+                            setLastBuild(latestJob);
+                        });
+
                     }
-                    
                 }
             });
-
-            last_build_time = moment(latestJob.lastBuild.timestamp).fromNow();
-
-            switch (latestJob.lastBuild.result) {
-                case "SUCCESS":
-                  label_status = 'success';
-                  text = "Build Success";
-                  break;
-                case null:
-                  label_status = 'info';
-                  text = "Building";
-                  break;
-                default:
-                label_status = 'danger';
-                text = "Build Failed";
-            }
-
-            jQuery('.travis-repo').html(latestJob.displayNameOrNull);
-            jQuery('.travis-repo').parent().attr('href', latestJob.url);
-            jQuery('.travis-timestamp').html(last_build_time);
-            jQuery('.travis-status').addClass('label-' + label_status).html(text);
-            jQuery('.travis-icon').removeClass('fa-spin').removeClass('fa-refresh').addClass('fa-cogs');
+            setLastBuild(latestJob);
         });
     }
 
