@@ -1,12 +1,12 @@
 ---
 layout: post
 title:  A Short Essay on the Java Virtual Machine
-summary: During my first semester at Hertfordshire, I had to write a short academic essay for a module that carried 0 credits. This got given 75+% by my tutor. 
+summary: During my first semester at Hertfordshire, I had to write a short academic essay for a module that carried 0 credits. This got given 75+% by my tutor.
 date:   2013-09-11 12:24:03
 categories: coursework vm java
 ---
 
-##To run a Java Program, you need a Java Virtual Machine. What is a Virtual Machine? Why is it necessary to have a Java Virtual Machine? Why is it useful that Java works this way?
+## To run a Java Program, you need a Java Virtual Machine. What is a Virtual Machine? Why is it necessary to have a Java Virtual Machine? Why is it useful that Java works this way?
 
 Java, originally developed by Sun Microsystems (now owned by Oracle) is one of the most popular programming languages today. The idea (that started back in 1991) was the belief that “the next wave in computing was the union of digital consumer devices and computers.” (Oracle, 2010). Back then, most devices were isolated and therefore mostly incompatible with other devices; so, the idea here was to unite devices through the use of virtual machines, making them able to interact with each other through a common system.
 
@@ -18,7 +18,7 @@ Matt Curtin’s article on this main feature of Java gives a detailed insight to
 
 Every day, ubiquitous computing is becoming a more and more real part of our environment. For this, devices have to be compatible with each other. With Java, devices of a different nature can interact with each other easily because programs will run on homogenous virtual machines on both of the devices. You now see Java on over 4 billion devices and some devices (for example, Blu-ray players) are exclusively powered by Java. (Oracle, 2011). It’s quite clear from this that Java has successfully been endorsed by many large corporations, which is helping Java to become more and more successful. “Java is the result of lots of good ideas from different programming languages coming together, in such a way that programmers can do what they need to do without need to jump through hoops and circles.” (Curtin, 1998, p. 4). From this, we could conclude that there has been successful innovation from the birth of Java, which after all, benefits the future of computing.
 
-###Bibliography
+### Bibliography
 - Bond, K., & Langfield, S. (2009). A2 Computing (Exclusively endorsed by AQA). Cheltenham: Nelson Thornes.
 
 - Curtin, M. (1998, April 9). Write Once, Run Anywhere: Why It Matters. Retrieved October 11, 2012, from interhack.net: <http://www.interhack.net/people/cmcurtin/rants/write-once-run-anywhere/write-once-run-anywhere.pdf>
