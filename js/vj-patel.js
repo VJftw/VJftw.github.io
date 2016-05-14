@@ -91,7 +91,7 @@ jQuery(function () {
                 }
 
                 jQuery('.lastfm-track').html(last_song.name);
-                jQuery('.lastfm-track').parent().attr('href', last_song.url);
+                jQuery('.lastfm-track').parent().attr('href', "http://last.fm/user/mclarenvj");
                 jQuery('.lastfm-artist').html(last_song.artist['#text']);
                 jQuery('.lastfm-timestamp').html(scrobble_time);
                 jQuery('.lastfm-icon').removeClass('fa-spin').removeClass('fa-refresh').addClass('fa-headphones');
@@ -131,46 +131,50 @@ jQuery(function () {
         }
 
         // Get list of jobs
+        function updateBuildStatus() {
+            jQuery.getJSON('https://ci.vjpatel.me/api/json?tree=jobs[displayNameOrNull,url,lastCompletedBuild[timestamp,result]]', function(data) {
+                var latestJob;
+                jQuery.each(data.jobs, function(i, item) {
 
-        jQuery.getJSON('https://ci.vjpatel.me/api/json?tree=jobs[displayNameOrNull,url,lastCompletedBuild[timestamp,result]]', function(data) {
-            var latestJob;
-            jQuery.each(data.jobs, function(i, item) {
-
-                if (item.displayNameOrNull) { // has display name
-                    if (item.lastCompletedBuild) {
-                        if (!latestJob) {
-                            latestJob = item;
-                        } else if (latestJob.lastCompletedBuild.timestamp < item.lastCompletedBuild.timestamp) {
-                            latestJob = item;
-                        }
-                    } else { // use master or develop branch
-                        jQuery.getJSON(item.url + '/branch/master/api/json?tree=url,lastCompletedBuild[timestamp,result]', function(data) {
-
-                            data.displayNameOrNull = item.displayNameOrNull;
-                            if (!latestJob && data.lastCompletedBuild) {
-                                latestJob = data;
-                            } else if (data.lastCompletedBuild && latestJob.lastCompletedBuild.timestamp < data.lastCompletedBuild.timestamp) {
-                                latestJob = data;
-                            } else {
-                                jQuery.getJSON(item.url + '/branch/develop/api/json?tree=url,lastCompletedBuild[timestamp,result]', function(data) {
-
-                                    data.displayNameOrNull = item.displayNameOrNull;
-                                    if (!latestJob && data.lastCompletedBuild) {
-                                        latestJob = data;
-                                    } else if (data.lastCompletedBuild && latestJob.lastCompletedBuild.timestamp < data.lastCompletedBuild.timestamp) {
-                                        latestJob = data;
-                                    }
-                                    setLastBuild(latestJob);
-                                });
+                    if (item.displayNameOrNull) { // has display name
+                        if (item.lastCompletedBuild) {
+                            if (!latestJob) {
+                                latestJob = item;
+                            } else if (latestJob.lastCompletedBuild.timestamp < item.lastCompletedBuild.timestamp) {
+                                latestJob = item;
                             }
-                            setLastBuild(latestJob);
-                        });
+                        } else { // use master or develop branch
+                            jQuery.getJSON(item.url + '/branch/master/api/json?tree=url,lastCompletedBuild[timestamp,result]', function(data) {
 
+                                data.displayNameOrNull = item.displayNameOrNull;
+                                if (!latestJob && data.lastCompletedBuild) {
+                                    latestJob = data;
+                                } else if (data.lastCompletedBuild && latestJob.lastCompletedBuild.timestamp < data.lastCompletedBuild.timestamp) {
+                                    latestJob = data;
+                                } else {
+                                    jQuery.getJSON(item.url + '/branch/develop/api/json?tree=url,lastCompletedBuild[timestamp,result]', function(data) {
+
+                                        data.displayNameOrNull = item.displayNameOrNull;
+                                        if (!latestJob && data.lastCompletedBuild) {
+                                            latestJob = data;
+                                        } else if (data.lastCompletedBuild && latestJob.lastCompletedBuild.timestamp < data.lastCompletedBuild.timestamp) {
+                                            latestJob = data;
+                                        }
+                                        setLastBuild(latestJob);
+                                    });
+                                }
+                                setLastBuild(latestJob);
+                            });
+
+                        }
                     }
-                }
+                });
+                setLastBuild(latestJob);
             });
-            setLastBuild(latestJob);
-        });
+        }
+
+        updateBuildStatus();
+        setInterval(updateBuildStatus, 120*1000);
     }
 
 });
