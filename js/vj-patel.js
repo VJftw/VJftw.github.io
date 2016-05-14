@@ -78,30 +78,34 @@ jQuery(function () {
 
     // Last.fm tracks
     if (jQuery('.lastfm-track').length) {
-        jQuery.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=mclarenvj&api_key=5b801a66d1a34e73b6e563afc27ef06b&limit=2&format=json&callback=?", function(data) {
 
-            last_song = data.recenttracks.track[0];
+        function updateLastFM() {
+            jQuery.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=mclarenvj&api_key=5b801a66d1a34e73b6e563afc27ef06b&limit=2&format=json&callback=?", function(data) {
 
-            if (last_song.hasOwnProperty('date')) {
-                scrobble_time = moment.unix(last_song.date.uts).fromNow();
-            } else {
-                scrobble_time = "Now";
-            }
+                last_song = data.recenttracks.track[0];
 
-            jQuery('.lastfm-track').html(last_song.name);
-            jQuery('.lastfm-track').parent().attr('href', last_song.url);
-            jQuery('.lastfm-artist').html(last_song.artist['#text']);
-            jQuery('.lastfm-timestamp').html(scrobble_time);
-            jQuery('.lastfm-icon').removeClass('fa-spin').removeClass('fa-refresh').addClass('fa-headphones');
-        });
+                if (last_song.hasOwnProperty('date')) {
+                    scrobble_time = moment.unix(last_song.date.uts).fromNow();
+                } else {
+                    scrobble_time = "Now";
+                }
+
+                jQuery('.lastfm-track').html(last_song.name);
+                jQuery('.lastfm-track').parent().attr('href', last_song.url);
+                jQuery('.lastfm-artist').html(last_song.artist['#text']);
+                jQuery('.lastfm-timestamp').html(scrobble_time);
+                jQuery('.lastfm-icon').removeClass('fa-spin').removeClass('fa-refresh').addClass('fa-headphones');
+            });
+        }
+
+        updateLastFM();
+        setInterval(updateLastFM, 60*1000);
     }
 
     // Jenkins CI last build
     if (jQuery('.travis-repo').length) {
         function setLastBuild(latestJob) {
             if (latestJob) {
-                console.log(latestJob);
-
                 last_build_time = moment(latestJob.lastCompletedBuild.timestamp).fromNow();
 
                 switch (latestJob.lastCompletedBuild.result) {
