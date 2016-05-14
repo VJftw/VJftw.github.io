@@ -2,11 +2,9 @@
 layout: post
 title:  A Perspective on Objects
 summary: Object-oriented programming is a very important and sometimes challenging concept in Computer Science. This post will detail my interpretation of it and the way I use it to solve challenges in development.
-date:   2015-08-15 12:24:03
+date:   2012-08-15 12:24:03
 categories: development object-orientated
 ---
-
-**Note:** This is a work-in-progress. I'm revamping an old post from 2012.
 
 I'm sure that if you're reading this, you've heard of a phenomenon called Object-Oriented Programming/Design(OOP/OOD respectively). If you haven't, in a nutshell it's just a way of thinking about problems or situations in a more materialistic manner in order to make solving or modelling them easier.
 
