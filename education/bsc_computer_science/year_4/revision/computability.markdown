@@ -14,8 +14,8 @@ This course aims to teach and prove the abilities and limitations of computers w
 | Class                     | Examples                          | Description
 |---------------------------|-----------------------------------|-------------
 | Natural ($$\mathbb{N}$$)  | $$3$$, $$30$$                     | Positive numbers including $$0$$.
-| Integer ($$\mathbb{Z}$$)  | $$-3$$, $$3$$                     | Positive and negative numbers
-| Rational ($$\mathbb{Q}$$) | $$0.6$$, $$\frac{3}{5}$$          | Decimal numbers
+| Integer ($$\mathbb{Z}$$)  | $$-3$$, $$3$$                     | Positive and negative numbers.
+| Rational ($$\mathbb{Q}$$) | $$0.6$$, $$\frac{3}{5}$$          | Decimal numbers.
 | Real ($$\mathbb{R}$$)     | $$\pi$$, $$\sqrt{2}$$, $$e$$      | Not enumerable. All numbers but not imaginary.
 | Imaginary                 | $$\sqrt{-1} (i)$$                 | When squared, give a negative result.
 | Algebraic                 | $$\sqrt{2}$$, $$\sqrt{-1} (i)$$   | A root of a non-zero polynomial equation.
@@ -24,14 +24,14 @@ This course aims to teach and prove the abilities and limitations of computers w
 **Computable Numbers:** A real number whose decimal expansion is *computable by finite means* or *written down by a machine*.
 
 ### Fermat's Last Theorem
-states that there is no  $$\mathbb{N} > 2$$ can satisfy $$a^n + b^n = c^n$$
+states that there is no  $$\mathbb{N} > 2$$ can satisfy $$a^n + b^n = c^n$$.
 
 -----
 
 # Sets and Functions
 
 ### Function
-A map from a set to a set such that it assigns each element of the first set a *single* element of the second set. *Many-to-one* allowed. A function from a set to itself is called an *endofunction*.
+A map from a set to a set that assigns each element of the first set a *single* element of the second set. *Many-to-one* allowed. A function from a set to itself is called an *endofunction*.
 
 $$A = \lbrace a_1, a_2, a_3 \rbrace \quad B = \lbrace b_1, b_2, b_3 \rbrace$$
 
@@ -69,7 +69,7 @@ $$f(a_1) = b_2 \quad (a_2) = b_1 \quad f(a_3) = b_3 \quad f(a_4) = b_4$$
 
 ## Proofs
 
-When a proving a Bijection, in general, provide proof that it is a function, injective and surjective.
+In general, when a proving a Bijection, provide proof that it is a function, injective and surjective.
 
 ### Give a bijection between the set of Odd numbers and the set of Natural numbers and provide proof that it is a bijection
 
@@ -97,7 +97,7 @@ $$-5 \rightarrow 4, \quad -3 \rightarrow 2, \quad -1 \rightarrow 0, \quad 1 \rig
     \end{cases}
     $$
 
-    The above proofs of function, injectivity and surjectivity means that this is a bijection.
+    The above proofs of function, injectivity and surjectivity show that this is a bijection.
 
 
 ### The Inverse of a Bijection is a Bijection
@@ -112,7 +112,7 @@ To show that $$f^{-1}$$ is also bijection when $$f$$ is a bijection, we have to 
 
     If $$f^{-1}(b_1) = a_1 = a_2$$, then $$f(a_1) = f(a_2) = b_1$$.
 
-    This is contradictory as we know that $$f$$ is injective (every element in $$A$$ as its own unique matching member in $$B$$).
+    This is contradictory as we know that $$f$$ is injective (every element in $$A$$ has its own unique matching member in $$B$$).
 
 2. $$f^{-1}$$ *must* be injective as it is not possible that two different elements $$b_1, b_2 \in B$$ are mapped to a single element $$a \in A$$.
 
@@ -122,7 +122,7 @@ To show that $$f^{-1}$$ is also bijection when $$f$$ is a bijection, we have to 
 
 3. For each element $$a \in A$$, there is an element $$b \in B$$ such that $$f^{-1}(b) = a$$.
 
-    This is satisfied by $$f(a) = b$$, which shows that for a given $$a$$, there is a $$b$$.
+    This is satisfied by $$f(a) = b$$, which shows that for a given $$a$$, there is a $$b$$ and thus vice-versa.
 
 ## Cardinality
 Two sets have the same cardinality if and only if there exists a bijection between them:
@@ -146,7 +146,7 @@ $$= 0.246$$
 
 We are looking for $$f: \mathcal{P}(A) \rightarrow \lbrace 0, 1 \rbrace ^A$$ where $$\mathcal{P}$$ is the powerset (set of subsets) of $$A$$.
 
-This is equivalent to a map that takes a subset of $$A$$ and an element of $$A$$ and return $$0$$ or $$1$$:
+This is equivalent to a map that takes a subset of $$A$$ and an element of $$A$$ and returns $$0$$ or $$1$$:
 
 $$f: \mathcal{P} \times A \rightarrow \lbrace 0, 1 \rbrace$$
 
@@ -258,6 +258,8 @@ Given a configuration of in standard form ($$q_i \text{  } S_j \text{  } S_k \te
 
 - Replace $$q_i$$ with $$D$$ followed by $$A$$ repeated $$i$$ times.
 - Replace $$S_j$$ with $$D$$ followed by $$C$$ repeared $$j$$ times.
+- Replace $$S_k$$ with $$D$$ followed by $$C$$ repeared $$k$$ times.
+- Replace $$q_m$$ with $$D$$ followed by $$A$$ repeated $$m$$ times.
 - The configuration ends with a $$;$$
 - $$N$$ is for no move???
 
@@ -268,9 +270,16 @@ Uniquely identifies a machine.
 With a standard description:
 
 {: .table .table-striped}
-| A | C | D | L | R | N | ;
-|---|---|---|---|---|---|---
-| 1 | 2 | 3 | 4 | 5 | 6 | 7
+| Character | Number
+|-----------|--------
+| A         | 1
+| C         | 2
+| D         | 3
+| L         | 4
+| R         | 5
+| N         | 6
+| ;         | 7
+
 
 A Turing machine with D.N. $$n$$ is described by $$M(n)$$. This can be read as "machine number n".
 
@@ -359,7 +368,7 @@ There is an algorithm to compute a function if and only if there is a Turing mac
 A Turing machine $$M$$ is $$\lbrace Q, \Sigma, \Gamma, \delta, q_0, q_a, q_r \rbrace$$ where:
 
 {: .table .table-striped}
-|           |           |
+|           |           
 |-----------|-----------
 | $$Q$$       | The finite set of states.
 | $$\Sigma$$  | The input alphabet not containing the blank symbol, $$\_$$.
@@ -498,10 +507,10 @@ A PDA, $$A$$, is defined by $$\langle Q_A, \Sigma_A, \Gamma_A, \delta_A, \text{i
 {: .table .table-striped}
 | | |
 |-|-
-| Recursive ($$\mathcal{R}$$) | Decidable (in both $$\mathcal{RE}$$ and $$\mathcal{coRE}$$)
-| Recursively Enumerable ($$\mathcal{RE}$$) | Semi-Decidable
+| Recursive ($$\mathcal{R}$$) | Decidable (in both $$\mathcal{RE}$$ and $$\mathcal{coRE}$$).
+| Recursively Enumerable ($$\mathcal{RE}$$) | Semi-Decidable.
 | $$\mathcal{coRE}$$ | The complement of recursively enumerable languages.
-| Undecidable | not in $$\mathcal{R}$$. simply *not decidable*
+| Undecidable | not in $$\mathcal{R}$$. simply *not decidable*.
 
 ## Languages
 A Turing machine, $$M$$, accepts input $$w$$ if it reaches the accepting state $$q_a$$. The collection of string accepted by a Turing machine, $$M$$, is called the language of $$M$$, and is denoted $$L(M)$$.
