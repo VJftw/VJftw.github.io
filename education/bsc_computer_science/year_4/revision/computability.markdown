@@ -591,9 +591,29 @@ The language of $$M'$$ is non-empty if and only if $$M$$ accepts $$w$$. Therefor
 
 # Rice's Theorem and Rice-Shapiro Theorem
 
-**Rice's Theorem:** The problem "given a language $$L \in \mathcal{RE}$$, does $$L$$ satisfy property $$P$$" is undecidable for all non-trivial properties $$P$$. This tells us what *recursive* languages of partial recursive functions look like.
+### Rice's Theorem
+The problem "given a language $$L \in \mathcal{RE}$$, does $$L$$ satisfy property $$P$$" is undecidable for all non-trivial properties $$P$$. This tells us what *recursive* languages of partial recursive functions look like. We cannot decide any non-trivial properties of the set of inputs a Turing machine accepts.
 
-**Rice-Shapiro Theorem:** tells us what *recursively-enumerable* languages of partial recursive functions look like. Can be used to prove that a language is not in $$\mathcal{RE}$$ (not semi-decidable).
+**Non-trivial properties:**
+
+ - $$L$$ is finite.
+ - $$L$$ is infinite.
+ - $$L$$ contains the empty string.
+ - $$L$$ is empty.
+ - $$L$$ contains no prime number.
+
+**Semantic** properties of programs are therefore undecidable:
+
+ - C, Java: Dos the program terminate on input 3? does it always return 0?
+ - C: Does the program have memory leaks, null-pointer references etc?
+
+### Rice-Shapiro Theorem
+tells us what *recursively-enumerable* languages of partial recursive functions look like. Can be used to prove that a language is not in $$\mathcal{RE}$$ (not semi-decidable).
+
+**Identity Function:** A function that returns the given parameter.
+
+## The Termination Problem (not in $$\mathcal{RE}$$)
+Given a Turing machine $$M$$, does it halt on **every** input $$w$$. The difference from the *Halting* problem is that it has an infinite set of inputs, which makes it not recursively-enumerable.
 
 ## Primitive Recursion
 A function is *primitive recursive* if and only if it has a *primitive recursive definition*:
