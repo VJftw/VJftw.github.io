@@ -587,14 +587,38 @@ Operation of $$M'$$ on input $$u$$:
 
 The language of $$M'$$ is non-empty if and only if $$M$$ accepts $$w$$. Therefore, $$f$$ is a reduction from $$\text{HALT}$$ to $$\text{NONEMPTY}$$, which shows that $$\text{NONEMPTY}$$ is undecidable.
 
+### Do two Turing machines accept the same language?
+
+We can reduce this problem to the $$\text{EMPTY}$$ problem that we know is Undecidable from other proofs.
+
+1. Given two Turing machines $$M_1$$ and $$M_2$$, is $$L(M_1) = L(M_2)$$?
+
+    $$EQ = \lbrace \langle M_1, M_2 \rangle \mid M_1, M_2 \text{ are Turing machines and } L(M_1) = L(M_2) \rbrace$$
+
+    $$EMPTY = \lbrace \langle M \rangle \mid M \text{ is a Turing machine and } L(M) = \emptyset \rbrace$$
+
+2. For the sake of contradiction, assume that $$EQ \in \mathcal{R}$$.
+3. Let $$M_{EQ}$$ be a Turing machine that decides $$EQ$$.
+4. Construct a Turing machine that decides $$E$$:
+    - $$M_{EMPTY}$$ emulates $$M_{EQ}$$ on input $$\langle M, M_{\emptyset} \rangle$$.
+    - if $$M_{EQ}$$ accepts then $$M_{EMPTY}$$ accepts, otherwise $$M_{EMPTY}$$ rejects.
+
+5. $$\langle M, M_{\emptyset} \rangle \in EQ$$ if and only if $$L(M) \in EMPTY$$ is empty, thus this is a contradiction to the fact that $$EMPTY$$ is undecidable, thus $$EQ \notin R$$.
+
 ----
 
 # Rice's Theorem and Rice-Shapiro Theorem
 
 ### Rice's Theorem
-The problem "given a language $$L \in \mathcal{RE}$$, does $$L$$ satisfy property $$P$$" is undecidable for all non-trivial properties $$P$$. This tells us what *recursive* languages of partial recursive functions look like. We cannot decide any non-trivial properties of the set of inputs a Turing machine accepts.
 
-**Non-trivial properties:**
+"given a language $$L \in \mathcal{RE}$$, does $$L$$ satisfy property $$P$$" is undecidable for all non-trivial properties $$P$$.
+
+- **Trivial:** *All* languages in $$\mathcal{RE}$$ either satisfy or dissatisfy the property.
+- **Non-trivial:** *Some* languages in $$\mathcal{RE}$$ might satisfy, others might dissatisfy the property.
+
+This tells us what *recursive* languages of partial recursive functions look like. We cannot decide any non-trivial properties of the set of inputs a Turing machine accepts.
+
+**Non-trivial properties of $$\mathcal{RE}$$ languages:**
 
  - $$L$$ is finite.
  - $$L$$ is infinite.
@@ -602,6 +626,14 @@ The problem "given a language $$L \in \mathcal{RE}$$, does $$L$$ satisfy propert
  - $$L$$ is empty.
  - $$L$$ contains no prime number.
 
+ **Non-trivial properties of computable functions:**
+
+  - $$f(0) = 1$$.
+  - $$f$$ is total.
+  - $$f$$ is totally defined.
+  - $$f(3)$$ is undefined.
+
+#### Consequences of Rice's Theorem
 **Semantic** properties of programs are therefore undecidable:
 
  - C, Java: Dos the program terminate on input 3? does it always return 0?
@@ -610,10 +642,33 @@ The problem "given a language $$L \in \mathcal{RE}$$, does $$L$$ satisfy propert
 ### Rice-Shapiro Theorem
 tells us what *recursively-enumerable* languages of partial recursive functions look like. Can be used to prove that a language is not in $$\mathcal{RE}$$ (not semi-decidable).
 
+If a language $$L = M(A)$$ is recursively enumerable, then for any function $$f \in A$$, there is a finite set of inputs $$x_1, ..., x_n$$ such that:
+
+ - $$f$$ is defined on all the $$x_i$$
+  - any function $$g$$ that agrees with $$f$$ on all the $$x_i$$ is also in $$A$$.
+
+*Informally:* if $$M(A)$$ is recursively enumerable, then $$f$$ gets to be in $$A$$ because it produces particular results on a particular **finite** set of inputs, and any other function that returns the same results on the same inputs is also in $$A$$.
+
 **Identity Function:** A function that returns the given parameter.
 
 ## The Termination Problem (not in $$\mathcal{RE}$$)
 Given a Turing machine $$M$$, does it halt on **every** input $$w$$. The difference from the *Halting* problem is that it has an infinite set of inputs, which makes it not recursively-enumerable.
+
+Using the Rice-Shapiro theorem, we can prove this:
+
+1. Given a Turing machine $$M$$, does $$M$$ halt for every input $$w$$?
+
+    $$A = \lbrace f \mid \text{exists } M.M \text{ halts on all inputs and computes } f \rbrace$$
+
+    $$M(A) = \lbrace \langle M \rangle \mid \text{ for all inputs } w \text{ Turing machine } M \text{ halts on } w \rbrace$$
+2. For the sake of contradiction, assume that $$M(A)$$ is in $$\mathcal{RE}$$.
+3. Let $$M$$ be a Turing machine that computes the identity function $$f(x) = x$$.
+4. $$M$$ computes a total function and in particular halts on all inputs, and thus $$M \in A$$.
+5. By Rice-Shapiro theorem, there exists a finite set of "test" inputs $$x_1, ..., x_n \in \mathbb{N}$$ for $$f$$.
+6. We can define a partial function $$g$$, that returns the same for those test inputs in $$f$$, such that $$g(x_i) = x_i$$.
+7. $$M_g$$ can be a Turing machine that computes the partial function $$g$$.
+8. As $$g$$ is a partial function, $$M_g$$ does not terminate on inputs apart from the test inputs.
+9. By Rice-Shapiro theorem, $$M_g \in A$$ because $$f$$ and $$g$$ agree on the test inputs, however we obtain a contradiction because Turing machines in $$M(A)$$ do not terminate on all inputs, thus $$M(A) \notin \mathcal{RE}$$.
 
 ## Primitive Recursion
 A function is *primitive recursive* if and only if it has a *primitive recursive definition*:
