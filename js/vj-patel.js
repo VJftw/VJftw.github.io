@@ -144,7 +144,7 @@ jQuery(function () {
                                 latestJob = item;
                             }
                         } else { // use master or develop branch
-                            jQuery.getJSON(item.url + '/branch/master/api/json?tree=url,lastCompletedBuild[timestamp,result]', function(data) {
+                            jQuery.getJSON(item.url + '/branch/develop/api/json?tree=url,lastCompletedBuild[timestamp,result]', function(data) {
 
                                 data.displayNameOrNull = item.displayNameOrNull;
                                 if (!latestJob && data.lastCompletedBuild) {
@@ -152,7 +152,7 @@ jQuery(function () {
                                 } else if (data.lastCompletedBuild && latestJob.lastCompletedBuild.timestamp < data.lastCompletedBuild.timestamp) {
                                     latestJob = data;
                                 } else {
-                                    jQuery.getJSON(item.url + '/branch/develop/api/json?tree=url,lastCompletedBuild[timestamp,result]', function(data) {
+                                    jQuery.getJSON(item.url + '/branch/master/api/json?tree=url,lastCompletedBuild[timestamp,result]', function(data) {
 
                                         data.displayNameOrNull = item.displayNameOrNull;
                                         if (!latestJob && data.lastCompletedBuild) {
