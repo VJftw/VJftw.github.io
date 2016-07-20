@@ -1,21 +1,22 @@
 ---
 layout: page
 title: Projects
-permalink: /projects/
 ---
-
-<div class="row">
-    {% assign projects = site.posts | where:"layout", "project" %}
-    {% for project in projects %}
+<div>
+{% assign project_counter = 0 %}
+    {% for project in site.projects %}
+    {% assign proj_mod = project_counter | modulo: 3 %}
+    {% if proj_mod == 0 %}
+        <div class="row">
+    {% endif %}
         <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-10">
                             <h4 class="pull-left">
-                                <a class="project-link" href="{{ project.url | prepend: site.baseurl }}">{{ project.title }}</a>
+                                <a class="project-link" href="{{ project.url | prepend: site.baseurl }}">{{ project.name }}</a>
                             </h4>
-
                         </div>
                         <div class="col-md-2">
                             {% if project.status == "in-progress" %}
@@ -35,5 +36,9 @@ permalink: /projects/
                 </div>
             </div>
         </div>
+        {% assign project_counter = project_counter | plus: 1 %}
+        {% if proj_mod == 2 %}
+            </div>
+        {% endif %}
     {% endfor %}
 </div>

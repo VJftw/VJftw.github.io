@@ -13,6 +13,29 @@ google_plus_name: VJ Patel
 google_plus_url: https://google.com/+VJPatel1994
 timezone: Europe/London
 
+projects:
+  - name: Implementations of Homomorphic Encryption
+    short_description: My BSc dissertation project that presents and runs different homomorphic encryption schemes
+    url: /projects/homomorphic-encryption
+    status: complete
+  - name: Orchestrate
+    short_description: A tool to manage Docker containers running on PaaS (AWS, GCP) focused on auto-scaling group
+    url: /projects/orchestrate
+    status: in-progress
+  - name: Invoke Docker Flow
+    short_description: A PyPi package for use with Docker containers and Python's Invoke task runner
+    url: /projects/invoke-docker-flow
+    status: in-progress
+  - name: Raspberry Pi HUD
+    short_description: Using a Raspberry Pi 3 and a touchscreen display to help improve productivity
+    url: /projects/raspberry-pi-hud
+    status: idle
+  - name: Blog/Website
+    short_description: CloudFlare + Jekyll + GitHub Pages
+    url: /projects/website
+    status: idle
+
+
 # Qualifications
 qualifications:
     - name: MSc Computing and Security
