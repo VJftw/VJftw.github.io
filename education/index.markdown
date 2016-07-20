@@ -1,14 +1,18 @@
 ---
 layout: page
-title: About
-permalink: /about/
+title: Education
 ---
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             {% for qualification in site.qualifications %}
             <div class="qualification row">
-                <h2>{{ qualification.name }} <small>{{ qualification.year_range }}</small></h2>
+                <div class="col-md-10">
+                    <h2><small>{{ qualification.year_range }}</small> {{ qualification.name }} {% if qualification.award %}<small>{{ qualification.award }}</small>{% endif %}</h2>
+                </div>
+                <div class="col-md-12">
+                </div>
+
                 {% for institution in qualification.institutions %}
                 <div class="col-md-12">
                     <h3>
@@ -22,7 +26,7 @@ permalink: /about/
                             {% assign headingId = year.year_range | replace:'/', '_' | prepend:'heading_' %}
                             <div class="panel-heading clearfix" role="tab" id="{{ headingId }}">
                                 {% assign panelId = year.year_range | replace:'/', '_' | prepend:'collapse_' %}
-                                <div class="col-md-10 clearfix">
+                                <div class="col-md-11 clearfix">
                                     <h4 class="panel-title">
                                     <a
                                         role="button"
@@ -37,7 +41,7 @@ permalink: /about/
                                      {{ year.name }}</a> {% if year.location %}@ {{ year.location }} {% endif %}
                                 </h4>
                                 </div>
-                                <div class="col-md-1 clearfix">
+                                <div class="col-md-1 clearfix pull-right">
 
                                     {% if year.score %}
                                     <span class="label label-success">{{ year.score }}%</span>
@@ -45,9 +49,6 @@ permalink: /about/
                                     <span class="label label-info">Sitting</span>
                                     {% endif %}
 
-                                </div>
-                                <div class="col-md-1 clearfix">
-                                    <small>{{ year.credits }} credits</small>
                                 </div>
                             </div>
                             <div
@@ -58,27 +59,19 @@ permalink: /about/
                             >
                                 <ul class="list-group">
                                     <li class="list-group-item clearfix">
-                                        <div class="col-md-10"><small><strong>Module</strong></small></div>
+                                        <div class="col-md-11"><small><strong>Module</strong></small></div>
                                         <div class="col-md-1 text-right"><small><strong>%</strong></small></div>
-                                        <div class="col-md-1 text-right"><small><strong>Credits</strong></small></div>
                                     </li>
                                     {% for module in year.modules %}
                                     <li class="list-group-item clearfix">
-                                        <div class="col-md-10">{{ module.name }}</div>
+                                        <div class="col-md-11">{{ module.name }}</div>
                                         {% if module.score %}
                                         <div class="col-md-1 text-right">
                                             {{ module.score }}
                                         </div>
-                                        <div class="col-md-1 text-right">
-                                            {% assign module_gained_credits = module.score|divided_by:100|times:module.credits %}
-                                            <small>{{ module_gained_credits | round }}/{{ module.credits}}</small>
-                                        </div>
                                         {% else %}
                                         <div class="col-md-1 text-right">
                                             <span class="label label-info">Sitting</span>
-                                        </div>
-                                        <div class="col-md-1 text-right">
-                                            <small>{{ module.credits }}</small>
                                         </div>
                                         {% endif %}
                                     </li>

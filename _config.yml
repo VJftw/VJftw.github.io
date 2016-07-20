@@ -13,32 +13,93 @@ google_plus_name: VJ Patel
 google_plus_url: https://google.com/+VJPatel1994
 timezone: Europe/London
 
+projects:
+  - name: Implementations of Homomorphic Encryption
+    short_description: My BSc dissertation project that presents and runs different homomorphic encryption schemes
+    url: /projects/homomorphic-encryption
+    status: complete
+  - name: Orchestrate
+    short_description: A tool to manage Docker containers running on PaaS (AWS, GCP) focused on auto-scaling group
+    url: /projects/orchestrate
+    status: in-progress
+  - name: Invoke Docker Flow
+    short_description: A PyPi package for use with Docker containers and Python's Invoke task runner
+    url: /projects/invoke-docker-flow
+    status: in-progress
+  - name: Raspberry Pi HUD
+    short_description: Using a Raspberry Pi 3 and a touchscreen display to help improve productivity
+    url: /projects/raspberry-pi-hud
+    status: idle
+  - name: Blog/Website
+    short_description: CloudFlare + Jekyll + GitHub Pages
+    url: /projects/website
+    status: idle
+
+
 # Qualifications
 qualifications:
-    - name: Computer Science BSc with Industrial Experience
+    - name: MSc Computing and Security
+      year_range: 2016 - 2017
+      institutions:
+        - name: King's College London
+          uri: http://www.kcl.ac.uk
+          years:
+            - name: The Year
+              year_range: 2016/17
+              weight: 100
+              modules:
+                - name: Individual Project
+                  credits: 60
+                - name: Cryptography and Information Security
+                  credits: 15
+                - name: Security Engineering
+                  credits: 15
+                - name: Computer Forensics and Cybercrime
+                  credits: 15
+                - name: Group Project
+                  credits: 15
+                - name: Network Security
+                  credits: 15
+                - name: Web Infrastructure
+                  credits: 15
+                - name: Advanced Software Engineering
+                  credits: 15
+                - name: TBD
+                  credits: 15
+    - name: BSc Computer Science with Industrial Experience
       year_range: 2012 - 2016
+      award: 1<sup>st</sup> Class (Hons)
+      score: 75.14
       institutions:
         - name: Queen Mary, University of London
           uri: http://www.qmul.ac.uk
           years:
             - name: Final Year
               year_range: 2015/16
+              score: 77.37
               weight: 65
               credits: 120
               modules:
-                - name: Project
+                - name: Dissertation Project (<a href="http://homomorphic-encryption.vjpatel.me" target="_blank">Implementations of Homomorphic Encryption</a>)
+                  score: 81.9
                   credits: 30
                 - name: Algorithms and Complexity
+                  score: 73.2
                   credits: 15
                 - name: Embedded Systems
+                  score: 83.4
                   credits: 15
                 - name: Advanced Database Systems and Technology
+                  score: 70.4
                   credits: 15
                 - name: Distributed Systems and Security
+                  score: 66.6
                   credits: 15
                 - name: Computability
+                  score: 82.0
                   credits: 15
                 - name: Web Programming
+                  score: 79.8
                   credits: 15
             - name: Industrial Experience
               location: <a target="_blank" href="http://www.uvd.co.uk">Ultra Violet Design (UVD)</a>
