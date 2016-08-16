@@ -7,8 +7,18 @@ title: Education
         <div class="col-md-12">
             {% for qualification in site.qualifications %}
             <div class="qualification row">
-                <div class="col-md-10">
-                    <h2><small>{{ qualification.year_range }}</small> {{ qualification.name }} {% if qualification.award %}<small>{{ qualification.award }}</small>{% endif %}</h2>
+                <div class="col-md-12">
+                    <div class="col-md-2">
+                        <h2><small>{{ qualification.year_range }}</small></h2>
+                    </div>
+                    <div class="col-md-8">
+                        <h2>{{ qualification.name }}</h2>
+                    </div>
+                    <div class="col-md-2 text-right">
+                        {% if qualification.award %}
+                            <h2><small>{{ qualification.award }}</small></h2>
+                        {% endif %}
+                    </div>
                 </div>
                 <div class="col-md-12">
                 </div>
