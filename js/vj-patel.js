@@ -2,21 +2,29 @@
 jQuery(function () {
 
     // Index Page
-    if (jQuery('.short-about div h1').length) {
-        greeting = jQuery('.short-about div h1');
-        intro = jQuery('.short-about div h2');
-        recent_posts = jQuery('#recent-posts');
+    if (jQuery('.greeting').length) {
+        jQuery(".greeting")
+        greeting = jQuery('.greeting');
+        intro = jQuery('.short-about');
+        moreInfo = jQuery('.long-about');
 
-        greeting.removeClass('hidden').textillate({ in: { effect: 'fadeIn' } });
-        intro.removeClass('hidden').textillate({
-            initialDelay: 500,
-            in: {
-                effect: 'fadeIn',
-                delay: 50
-            },
-            type: 'word',
+        greeting.typed({
+            strings: ["Hi,"],
+            typeSpeed: 0,
+            showCursor: false,
             callback: function() {
-                // recent_posts.show().addClass('animated fadeIn');
+                intro.typed({
+                    strings: ["I'm an MSc Computing and Security student at King's College, London who explores Cryptography, ^350 Dev Ops ^250 and the Internet of Things."],
+                    typeSpeed: 10,
+                    showCursor: false,
+                    callback: function() {
+                        moreInfo.typed({
+                            strings: ['You can also find me exploring space <i class="fa fa-rotate-270 fa-space-shuttle"></i>, ^300 raving at a festival <i class="fa fa-music"></i> ^300 or buried in a book <i class="fa fa-book"></i>.'],
+                            typeSpeed: 10,
+                            showCursor: false
+                        });
+                    }
+                });
             }
         });
     }

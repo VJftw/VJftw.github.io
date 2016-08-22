@@ -3,6 +3,8 @@ title: VJ Patel
 email: vj@vjpatel.me
 short_about: >
   I'm an MSc Computing and Security student at King's College, London who explores Cryptography, Dev Ops and the Internet of Things.
+long_about: >
+  You can also find me exploring space <i class="fa fa-rotate-270 fa-space-shuttle"></i>, raving at a festival <i class="fa fa-music"></i> or buried in a book <i class="fa fa-book"></i>. 
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://vjpatel.me" # the base hostname & protocol for your site
 twitter_username: VJftw
@@ -21,7 +23,7 @@ projects:
   - name: Orchestrate
     short_description: A tool to manage Docker containers running on PaaS (AWS, GCP) focused on auto-scaling group
     url: /projects/orchestrate
-    status: in-progress
+    status: idle
   - name: Invoke Docker Flow
     short_description: A PyPi package for use with Docker containers and Python's Invoke task runner
     url: /projects/invoke-docker-flow
