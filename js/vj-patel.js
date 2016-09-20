@@ -19,7 +19,7 @@ jQuery(function () {
                     showCursor: false,
                     callback: function() {
                         moreInfo.typed({
-                            strings: ['You can also find me lost space <i class="fa fa-rotate-270 fa-space-shuttle"></i>, ^300 raving at a festival <i class="fa fa-music"></i> ^300 or buried in a book <i class="fa fa-book"></i>.'],
+                            strings: ['You can also find me lost in space <i class="fa fa-rotate-270 fa-space-shuttle"></i>, ^300 raving at a festival <i class="fa fa-music"></i> ^300 or buried in a book <i class="fa fa-book"></i>.'],
                             typeSpeed: 10,
                             showCursor: false
                         });
