@@ -4,7 +4,7 @@ email: vj@vjpatel.me
 short_about: >
   I'm an MSc Computing and Security student at King's College, London who explores Cryptography, Dev Ops and the Internet of Things.
 long_about: >
-  You can also find me exploring space <i class="fa fa-rotate-270 fa-space-shuttle"></i>, raving at a festival <i class="fa fa-music"></i> or buried in a book <i class="fa fa-book"></i>. 
+  You can also find me lost in space <i class="fa fa-rotate-270 fa-space-shuttle"></i>, raving at a festival <i class="fa fa-music"></i> or buried in a book <i class="fa fa-book"></i>.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://vjpatel.me" # the base hostname & protocol for your site
 twitter_username: VJftw
@@ -54,7 +54,11 @@ qualifications:
                   credits: 60
                 - name: Cryptography and Information Security
                   credits: 15
+                - name: Advanced Software Engineering
+                  credits: 15
                 - name: Security Engineering
+                  credits: 15
+                - name: Web Infrastructure
                   credits: 15
                 - name: Computer Forensics and Cybercrime
                   credits: 15
@@ -62,11 +66,7 @@ qualifications:
                   credits: 15
                 - name: Network Security
                   credits: 15
-                - name: Web Infrastructure
-                  credits: 15
-                - name: Advanced Software Engineering
-                  credits: 15
-                - name: TBD
+                - name: Text Searching and Processing
                   credits: 15
     - name: BSc Computer Science with Industrial Experience
       year_range: 2012 - 2016
