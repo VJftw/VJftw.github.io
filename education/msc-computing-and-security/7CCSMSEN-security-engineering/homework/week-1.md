@@ -1,3 +1,7 @@
+---
+layout: page
+title: 7CCSMSEN Homework 1
+---
 Q2: Practice thinking like an attacker. Assume the following situation:
 > Prof. V. Nasty gives the following final exam question (closed books, closed notes):
 
