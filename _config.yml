@@ -179,9 +179,3 @@ qualifications:
                 - name: Professional and Academic Skills
                   score: 73.6
                   credits: 0
-
-
-# Build settings
-markdown: kramdown
-sass:
-    style: :compressed
