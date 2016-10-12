@@ -59,7 +59,7 @@ A:
 Q6: In the Estonian general election, votes can be cast via Internet some time before the election day. These votes cast via Internet can be changed an unlimited amount of times, the last vote is tabulated. You can even change your vote on the polling day in person. Which security requirement does this procedure address?
 
 A:
-- Ballot secrecy.
+- Ballot secrecy. It is possible that a family member/friend will influence your vote online but you are still able to change your vote in person on the day.
 
 
 
