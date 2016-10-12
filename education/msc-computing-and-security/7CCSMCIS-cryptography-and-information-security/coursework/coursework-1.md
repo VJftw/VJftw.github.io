@@ -81,6 +81,8 @@ MEET ME AT HAMMERSMITH BRIDGE TONIGHT
 
 ### What kind of cipher is it?
 
+This is a mono-alphabetic cipher as each letter is mapped to one symbol/character in the ciphertext alphabet.
+
 ### Why is it so difficult to break? (Especially without the hint!)
 
 It is really difficult to break as it uses a ciphertext alphabet that we are not as familiar with.
