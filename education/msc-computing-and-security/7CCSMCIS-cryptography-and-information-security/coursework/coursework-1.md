@@ -77,6 +77,36 @@ MEET ME AT HAMMERSMITH BRIDGE TONIGHT
 
 ## The Churchyard Cipher (Simplified): Exercise
 
-Draw tic tac toe grids, the number of dots indicate which grid to use.
+![alt text](https://docs.google.com/drawings/d/1Q46jjvIEIVu7e_gUorw3IS-b4B6nONyRHOLP2FA6dLc/pub?w=960&h=100 "Churchyard cipher question")
+
+### What kind of cipher is it?
+
+### Why is it so difficult to break? (Especially without the hint!)
+
+It is really difficult to break as it uses a ciphertext alphabet that we are not as familiar with.
+
+### What is the plaintext message?
+
+So, after reading about the pigpen cipher and the tic-tac-toe hint; it's clear that we can place our alphabet inside 3 tic-tac-toe grids and use the surrounding borders as an identifier for each letter; like so:
+
+![alt text](https://docs.google.com/drawings/d/1s8gjJIfxvfbyOEAxWH34FqJ2PFMKCs5aJcHD1YW1pgA/pub?w=960&h=282 "Churchyard cipher intermediate key")
+
+
+We can guess that the dots refer to which grid to use, but which one? We can easily find out by writing down each combination (there are only 3!):
+
+```
+I E D E D B E T   D E A B H
+R N M N M K N R   M N J K Q
+_ W V W V T W _   V W S T _
+```
+
+From here, there is only one sensical phrase: `REMEMBER DEATH`.
+
+
+### What is the key?
+
+From the above, this makes our key:
+
+![alt text](https://docs.google.com/drawings/d/1TMZ6_K5cHtGatu4Md_Vhtitvd8vo8PDzXRtUg4BhJVg/pub?w=960&h=282 "Churchyard Cipher complete key")
 
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
