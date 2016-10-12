@@ -60,15 +60,19 @@ $$
 
 
 We can then split the plaintext into pairs with `X`s to fill repeated characters when necessary:
+
 ```
 ME ET ME AT HA MX ME RS MI TH BR ID GE TO NI GH TX
 ```
+
 We can then cipher this to get:
+
 ```
 DG DO DG RQ AR KY GD HD NK PR DA MS OG UP GK IC QY
 ```
 
 And decrypt to get:
+
 ```
 ME ET ME AT HA MX ME RS M(I/J) TH BR (I/J)D GE TO N(I/J) GH TX
 MEET ME AT HAMXMERSM(I/J)TH BR(I/J)DGE TON(I/J)GHTX
